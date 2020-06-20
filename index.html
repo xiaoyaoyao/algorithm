@@ -74,6 +74,28 @@ function factrial(n,total = 1){//n 需要大于0
 
 console.log(factrial(0));
 
+//快速排序算法
+function quickSort(arr){
+    if(!arr || arr.length < 2){
+		return  arr;
+	}
+	let pivot = arr[0];
+	let less = [];
+	let greater = [];
+	
+	for(let i = 1; i < arr.length ; i++){
+	   if(arr[i] <= pivot){
+	      less.push(arr[i]);
+	   }else{
+		  greater.push(arr[i]);
+	   }
+	}
+	return [...quickSort(less),pivot,...quickSort(greater)];
+}
+//时间复杂度O(nlog(n));
+
+console.log(quickSort([1,2,3,5,3,7,3,4]));
+
 
 
 
