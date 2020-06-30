@@ -96,8 +96,68 @@ function quickSort(arr){
 
 console.log(quickSort([1,2,3,5,3,7,3,4]));
 
+//广度搜索算法
+var index = 0;
+function Bread_first_search(node,value){
+  index++;
+  if(node.value === value) {
+    return node
+  }
+  let children = node.children;
+  for(let childNode of children){
+     let findNode = Bread_first_search(childNode,value);
+     if(findNode) return findNode;//find value return
+  }
+}
+
+var breadArray = {
+  value : 1,
+  children: [
+    {
+      value: 21,
+      children: [
+      {
+      value: 211,
+      children: []
+    }
+      ]
+    }, {
+      value: 22,
+      children: [
+      {
+      value: 221,
+      children: []
+    }
+      ]
+    },{
+      value: 23,
+      children: [
+      {
+      value: 231,
+      children: []
+    }
+      ]
+    },{
+      value: 24,
+      children: [
+      {
+      value: 241,
+      children: [
+        {
+          value: 3,
+      children: [
+        
+      ] }
+      ]
+    }
+      ]
+    }
+  ]
+}
 
 
+console.log(Bread_first_search(breadArray,221));
+console.log(index)
 
 
 
